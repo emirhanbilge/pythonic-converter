@@ -1,0 +1,122 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
+
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="departments" type="departmentsType"/>
+    <xs:complexType name="nameType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="Lang" name="lang" use="optional" default="tr" />
+                <xs:attribute type="Second" name="second" use="optional" default="öö" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="quotaType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute type="xs:integer" name="spec" use="optional" default="0" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="last_min_scoreType">
+        <xs:simpleContent>
+            <xs:extension base="xs:double">
+                <xs:attribute type="xs:integer" name="order" use="optional" default="0" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="itemType">
+        <xs:sequence>
+            <xs:element type="nameType" name="name"/>
+            <xs:element type="xs:integer" name="period"/>
+            <xs:element type="quotaType" name="quota"/>
+            <xs:element type="Field" name="field"/>
+            <xs:element type="last_min_scoreType" name="last_min_score" default="0"/>
+            <xs:element type="Grant" name="grant" default="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="faculty" use="required"/>
+        <xs:attribute type="checkID" name="id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="universityType">
+        <xs:sequence>
+            <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="typ" name="uType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="departmentsType">
+        <xs:sequence>
+            <xs:element type="universityType" name="university" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="Lang">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="en"/>
+                    <xs:enumeration value="tr"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="typ">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Devlet"/>
+                    <xs:enumeration value="Vakıf"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="checkID">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:pattern value="[0-9]{9}"></xs:pattern>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Field">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="SAY"/>
+                    <xs:enumeration value="EA"/>
+                    <xs:enumeration value="SÖZ"/>
+                    <xs:enumeration value="DİL"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Second">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="öö"/>
+                    <xs:enumeration value="iö"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Grant">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:enumeration value="25"/>
+                    <xs:enumeration value="50"/>
+                    <xs:enumeration value="100"/>
+                    <xs:enumeration value="0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+</xs:schema>

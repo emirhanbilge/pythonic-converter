@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<departments>
+    <university name="DOKUZ EYLÜL ÜNİVERSİTESİ" uType="Devlet">
+        <item faculty="Mühendislik Fakültesi" id="2017510020">
+            <name lang="tr" second="öö">Bilgisayar Mühendisliği</name>
+            <period>4</period>
+            <quota spec="3">90</quota>
+            <field>SAY</field>
+            <last_min_score order="37000">42512447</last_min_score>
+            <grant>25</grant>
+        </item>
+        <item faculty="Mühendislik Fakültesi" id="103110451">
+            <name lang="tr" second="öö">Çevre Mühendisliği</name>
+            <period>4</period>
+            <quota spec="2">80</quota>
+            <field>SAY</field>
+            <last_min_score order="232000">26694283</last_min_score>
+            <grant>25</grant>
+        </item>
+    </university>
+
+    <university name="Test created by EBB" uType="Devlet">
+        <item faculty="Mühendislik Fakültesi" id="2017510020">
+            <name lang="en" second="öö">Bilgisayar Mühendisliği</name>
+            <period>5</period>
+            <quota spec="3">90</quota>
+            <field>SAY</field>
+            <last_min_score order="32000">412</last_min_score>
+            <grant>50</grant>
+        </item>
+        <item faculty="Mühendislik Fakültesi" id="103110451">
+            <name lang="tr" second="öö">Çevre Mühendisliği</name>
+            <period>4</period>
+            <quota spec="2">80</quota>
+            <field>SAY</field>
+            <last_min_score order="232000">26694283</last_min_score>
+            <grant>50</grant>
+        </item>
+    </university>
+</departments>
